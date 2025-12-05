@@ -1,0 +1,171 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+/* Keep body neutral so the app controls background/colors */
+body {
+  background: transparent; /* or match your app bg color */
+}
+
+#root {
+  width: 100vw;
+  min-height: 100vh;
+  max-width: none;      /* remove any width cap */
+  padding: 0;           /* remove template padding */
+  text-align: center;    /* don't force centering globally */
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+.app-frame {
+  position: relative;
+  flex: 1;          /* so it grows inside #root flex column */
+  width: 100%;
+  min-height: 100vh;
+  overflow: auto;
+}
+.card {
+  padding: 2rem;
+}
+.about-frame {
+  height: 100vh;
+  background-color: black;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: auto;
+}
+.aboutContainer {
+  width: 100vw;
+  background-color: black;
+}
+
+.aboutTitle {
+  font-size: 96px;
+  font-weight: 500;
+  font-family: sftn;
+  font-style: normal;
+  letter-spacing: -2.2px;
+  text-decoration: none;
+  text-transform: none;
+  color: rgb(255, 255, 255);
+}
+.aboutCard {
+  font-size: 32px;
+  font-weight: 400;
+  font-family: sftn;
+  font-style: normal;
+  letter-spacing: -0.4px;
+  text-decoration: none;
+  text-transform: none;
+  color: rgb(255, 255, 255);
+}
+
+/* Content sits above slideshow */
+.content-overlay {
+  position: relative;
+  z-index: 2;
+}
+.slideshow-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;  
+  z-index: 0;
+  overflow: hidden;
+}
+.slideshow-bg .react-slideshow-wrapper,
+.slideshow-bg .images-wrap {
+  height: 100%;
+}
+
+.slideshow-bg img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Background map */
+.leaflet-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh !important;
+  width: 100vw !important;
+  opacity: 0.4;
+  z-index: -1;
+  pointer-events: none; /* map is not clickable */
+}
+
+/* Foreground content wrapper */
+.timeline-page {
+  position: relative;
+  z-index: 1;
+  color: #111;
+}
+
+/* Each timeline section fills (or nearly fills) the viewport */
+.timeline-section {
+  min-height: 100vh;
+  padding: 6rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.timeline-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.timeline-subtitle {
+  font-size: 1.5rem;
+  color: #b7b5b5;
+}
+.timeline-context {
+  font-size: 1.5rem;
+  font-weight: 200;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+.timeline-stack {
+  font-size: 1.5rem;
+  font-weight: 200;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+.tech-stack-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Creates 2 equal columns */
+  gap: 10px; /* Adds space between grid items */
+}
