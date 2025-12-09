@@ -64,14 +64,19 @@ body {
   overflow: auto;
 }
 .aboutContainer {
-  width: 100vw;
+  width: 50vw;
   background-color: black;
+  padding-left: 12rem;
 }
 
 .aboutTitle {
-  font-size: 96px;
-  font-weight: 500;
-  font-family: sftn;
+  padding: 2rem;
+  margin-bottom: 0px;
+  text-align: left;
+  font-family: "Golos Text", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 76px;
+  font-weight: 150;
   font-style: normal;
   letter-spacing: -2.2px;
   text-decoration: none;
@@ -79,16 +84,34 @@ body {
   color: rgb(255, 255, 255);
 }
 .aboutCard {
+  text-align: left;
+  font-family: "Golos Text", sans-serif;
+  font-optical-sizing: auto;
   font-size: 32px;
-  font-weight: 400;
-  font-family: sftn;
+  /* font-weight: 300; */
   font-style: normal;
   letter-spacing: -0.4px;
   text-decoration: none;
   text-transform: none;
   color: rgb(255, 255, 255);
 }
-
+.aboutImage {
+  left: 0px;
+  top: 0px;
+  width: auto;
+  height: 700px;
+  z-index: 310;
+}
+.aboutImageAnimate {
+  position: relative;
+  display: flex;
+  margin-left: 83%;
+  left: 180px;
+  width: 600px;
+  height: 1550px;
+  offset-path: path("M 335 230.5");
+  offset-rotate: 0deg;
+}
 /* Content sits above slideshow */
 .content-overlay {
   position: relative;
@@ -144,7 +167,6 @@ body {
 
 .timeline-title {
   font-size: 4rem;
-  font-weight: 700;
   margin-bottom: 1rem;
 }
 
@@ -157,15 +179,33 @@ body {
   font-weight: 200;
   margin-bottom: 1rem;
   color: #ffffff;
+  justify-content: flex-start;  /* keep it left-aligned */
+  align-self: center;
+  width: 75%;
 }
 .timeline-stack {
+  padding-bottom: 15px;
+  padding-top: 15px;
   font-size: 1.5rem;
   font-weight: 200;
-  margin-bottom: 1rem;
+  margin: 0;  
   color: #ffffff;
 }
 .tech-stack-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Creates 2 equal columns */
-  gap: 10px; /* Adds space between grid items */
+  /* Instead of 1fr (full width), size columns to content */
+  grid-template-columns: repeat(2, max-content);
+  column-gap: 80px;   /* tighter horizontal spacing */
+  row-gap: 40px;      /* optional: vertical spacing */
+  justify-content: flex-start;  /* keep it left-aligned */
+  width: fit-content;  
+  align-self: center;         /* don't stretch to full line */
+}
+.nabla-header {
+  margin-top: 15%;
+  font-family: "Golos Text", sans-serif;
+  font-size: 33px;
+  font-weight: 50;
+  font-style: normal;
+  
 }

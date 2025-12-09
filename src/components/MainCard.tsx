@@ -1,6 +1,6 @@
-import React from "react";
 import AboutPage from "./AboutPage";
 import TimeLine from "./TimeLine";
+
 
 
 type MainCardParams = {
@@ -9,21 +9,24 @@ type MainCardParams = {
 
 
 const MainCard = ({ title }: MainCardParams) => {
-    console.log({title})
   return (
-      (title === "about") ?
+      (title === "about") ? (
         <div>
-          <AboutPage title={title}/>
-        </div> : (title === "timeline") ?
-        <div className='mainCard'>
-          <TimeLine title={title}/>
-          <div className="card"></div>
-        </div> : 
-        <div>
-          Home
+          <AboutPage/>
         </div>
+        ) : (title === "timeline") ? (
+        <div className='mainCard'>
+          <TimeLine/>
+          <div className="card"></div>
+        </div> ) : (  
+        <>
 
-  );
+        <h1 className="nabla-header">
+        Studied people, mapped places — now I engineer what connects them.
+        </h1>
+        </>
+        ) 
+      );
 };
 
 export default MainCard;

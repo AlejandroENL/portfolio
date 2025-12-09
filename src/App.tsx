@@ -5,7 +5,6 @@ import MainCard from './components/MainCard'
 import Slideshow from './components/Slideshow'
 
 
-
 function App() {
   const [selectedTitle, setSelectedTitle] = useState<string>("Home");
   

@@ -17,7 +17,7 @@ type AppHeaderProps = {
 };
 
 
-const AppHeader: React.FC<AppHeaderProps> = ({ onPageSelect }) => {
+const AppHeader = ({ onPageSelect}: AppHeaderProps) => {
     
     const handlePageClick = (title: string): void => {
     
@@ -33,8 +33,8 @@ const AppHeader: React.FC<AppHeaderProps> = ({ onPageSelect }) => {
     return(
             <div className="row">
             {ListOfPages.map((page: Page) => (
-                <div className="column">
-                <span onClick={() => handlePageClick(page.title)} style={{ cursor: 'pointer'}} key={page.id} >
+                <div className="column" key={page.id}>
+                <span onClick={() => handlePageClick(page.title)} style={{ cursor: 'pointer'}}  >
                     {page.title}
                 </span>
                 </div>

@@ -35,16 +35,16 @@ const MapTileURL = "https://tiles.stadiamaps.com/tiles/stamen_toner_background/{
 
 
 const timelineItems: TimelineItem[] = [
-  {
-    id: "san-nicolas",
-    title: "Education & Experience",
-    subtitle: " ",
-    latlon: [32.1689103,-97.8768425],
-    // latlon: [32.76, -96.79],
-    stack: [],
-    context: "",
-    zoom: 7.25
-  },
+  // {
+  //   id: "san-nicolas",
+  //   title: "Education & Experience",
+  //   subtitle: " ",
+  //   latlon: [32.1689103,-97.8768425],
+  //   // latlon: [32.76, -96.79],
+  //   stack: [],
+  //   context: "",
+  //   zoom: 7.25
+  // },
   {
     id: "dallas-back",
     title: "City of Dallas",
@@ -52,7 +52,7 @@ const timelineItems: TimelineItem[] = [
     latlon: [32.7764033, -96.7968229],
     stack: ["React", "Typescript", "C#", "Python", "ArcGIS Enterprise"],
     zoom: 12.25,
-    context: "In 2025 Alejandro accepted a position closer to home with the City of Dallas where he is leading the effort to once modernize legacy tools built on the ESRI JavaScript API. Alejandro has leveraged his experience with React and Typescript to modernize and scale these tools and improve worksflows. In addition his experience with understanding and building APIs has leveraged his team to build full stack solutions.."
+    context: "Alejandro joined the City of Dallas in 2025, leading modernization efforts for legacy applications originally built on the Esri JavaScript API. He applies React and TypeScript to rebuild and scale tools, and uses Python and C# to deliver full-stack solutions across the organization."
   },
   {
     id: "fort-worth",
@@ -61,7 +61,7 @@ const timelineItems: TimelineItem[] = [
     latlon: [32.7529, -97.3435],
     stack: ["React", "Typescript", "Python", "Express JS", "Flask API", "ArcGIS Enterprise"],
     zoom: 12.25,
-    context: "In 2021 Alejandro accepted a position working for the City of Fort Worth in the Information Technology GIS group. Alejandro along with his team maintained an enterprise Geogrpahic Information System. Alejandro new interest and passion for programming led him to tackle automation task leveraging Python to stream line workflows as well to maintain existing processes. Seeking to learn more he began to study web development where he spearheaded the initiative to migrate custom legacy widgets built for the ESRI Web App Builder platform and modernize them to work with Experience Builder. This requuired an effort to learn React + Typescript."
+    context: "In 2021, Alejandro became part of the City of Fort Worth’s IT GIS team, supporting and developing enterprise GIS solutions. He focused on automation using Python, improving data workflows, and modernizing internal tools. During this time, he taught himself web development with React and TypeScript, and led the migration of custom widgets from Esri Web App Builder to Experience Builder."
   },
   {
     id: "Atlas-10",
@@ -70,7 +70,7 @@ const timelineItems: TimelineItem[] = [
     latlon: [32.7984749, -97.0320509],
     stack: ["ArcMap", "ArcGIS Pro", "Python", "Drone Imagery"],
     zoom: 15,
-    context: "In 2019 Alejandro moved back to North Texas accepting a position as a GIS Analyst for Atlas10. While working as an Analyst, he began to study Python as a way to stream line the work he was doing. Seeing the power behind programming in real time sparked an interest that would shape his career moving forward."
+    context: "Alejandro returned to North Texas in 2019 as a GIS Analyst with Atlas10. There, he began learning Python to streamline data processes, sparking the interest in software development that shaped the direction of his career."
   },
   {
     id: "san-marcos",
@@ -78,9 +78,18 @@ const timelineItems: TimelineItem[] = [
     subtitle: "B.A Anthropology & B.S GIS, 2017",
     latlon: [29.88, -97.94],
     stack: [],
-    context: "Alejandro started his education at Texas State majoring in Anthropology with a focus in Archeology. Under this program he was required a minor in which he chose Geography as that alligned with his interest. Soon after he learned about GIS and decided to pick up a second major. Alejandro graduated in 2017 Cum Laude with both degrees.",
+    context: "Alejandro transferred to Texas State University in 2015, originally majoring in Anthropology with an emphasis in Archaeology and a minor in Geography. After discovering GIS, he added a second major and graduated Cum Laude in 2017 with a B.A. in Anthropology and a B.S. in Geographic Information Science.",
     zoom: 13
   },
+  {
+    id: "uta-arlington",
+    title: "University of Texas at Arlington",
+    subtitle: "B.A Anthropology, 2014",
+    latlon: [32.7292117, -97.1151971],
+    stack: [],
+    context: "Alejandro began his academic path at Dallas Community Colleges before transferring to the University of Texas at Arlington to study Anthropology.",
+    zoom: 15
+  }
 
 ];
 
@@ -92,7 +101,7 @@ const LocationFlyTo: FC<{ latlon: [number, number], zoom: number }> = ({ latlon,
   return null;
 };
 
-const TimelineMapPage: FC = () => {
+const TimelineMapPage = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -163,7 +172,7 @@ const TimelineMapPage: FC = () => {
               <p className="timeline-stack"> Tech Stack</p>
               <div className="tech-stack-container">
               {item.stack.map((obj) => (
-                <p className="timeline-stack">{obj}</p>
+                <p className="timeline-stack" key={`${item.id}-${obj}`}>{obj}</p>
               ))}
               </div>
               </>

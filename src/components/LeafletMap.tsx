@@ -52,7 +52,7 @@ const LocationFlyTo: FC<{ latlon: [number, number] }> = ({ latlon }) => {
   return null;
 };
 
-const LeafletMap: FC = () => {
+const LeafletMap = () => {
   const [latlon, setLatLon] = useState<[number, number]>(center);
 
   return (
