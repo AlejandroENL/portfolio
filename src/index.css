@@ -172,4 +172,10 @@ header{
 .project-card li {
   margin-bottom: 0.5rem;
 }
+.theme-toggle {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 10;
+}
 

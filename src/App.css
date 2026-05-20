@@ -1,7 +1,13 @@
+:root {
+  --accent: #2ecc71;
+  --hero-bg: url("./assets/Green-BGV2.jpg");
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
   font-family: "Poppins", sans-serif;
 }
 
@@ -10,6 +16,7 @@ body,
 #root {
   width: 100%;
   min-height: 100vh;
+
   overflow-x: hidden;
 }
 
@@ -17,39 +24,63 @@ body {
   background: #000;
 }
 
+/* ---------- THEMES ---------- */
+
+.hero.green {
+  --accent: #2ecc71;
+  --hero-bg: url("./assets/Green-BGV2.jpg");
+}
+
+.hero.orange {
+  --accent: #d97706;
+  --hero-bg: url("./assets/Fall-BG.jpg");
+}
+
 /* ---------- APP LAYOUT ---------- */
 
 .hero {
   width: 100%;
   min-height: 100vh;
+
   position: relative;
+
   overflow: hidden;
 
   background:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
-    url("./assets/Green-BGV2.jpg");
+    var(--hero-bg);
 
   background-size: cover;
   background-position: center;
+
+  transition:
+    background-image 0.4s ease,
+    background-color 0.4s ease;
 }
 
 .main-width {
   width: min(1280px, 92%);
+
   margin: 0 auto;
 }
 
 /* ---------- HEADER ---------- */
 
-header {
+.header {
   padding: 2rem 0;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  position: relative;
+  z-index: 5;
 }
 
 .logo button {
   background: transparent;
   border: none;
+
   cursor: pointer;
 }
 
@@ -59,23 +90,29 @@ header {
 
 .nav-list {
   list-style: none;
+
   display: flex;
   align-items: center;
+
   gap: 2.5rem;
 }
 
 .nav-list li button {
   background: transparent;
   border: none;
+
   color: white;
+
   cursor: pointer;
+
   font-size: 0.95rem;
   font-weight: 500;
+
   transition: 0.3s;
 }
 
 .nav-list li button:hover {
-  color: #2ecc71;
+  color: var(--accent);
 }
 
 .nav-list li.btn a {
@@ -84,17 +121,21 @@ header {
   justify-content: center;
 
   padding: 0.7rem 1.5rem;
+
   border-radius: 999px;
 
-  border: 2px solid #2ecc71;
+  border: 2px solid var(--accent);
 
-  color: #2ecc71;
+  color: var(--accent);
+
   text-decoration: none;
+
   transition: 0.3s;
 }
 
 .nav-list li.btn a:hover {
-  background: #2ecc71;
+  background: var(--accent);
+
   color: white;
 }
 
@@ -113,48 +154,65 @@ header {
 
 .hero-text h3 {
   color: rgba(255,255,255,0.75);
+
   font-weight: 400;
+
   margin-bottom: 1rem;
 }
 
 .hero-text h1 {
   color: white;
-  font-size: clamp(3rem, 7vw, 5rem);
-  line-height: 1.05;
-  margin-bottom: 1.5rem;
+
+  font-size: clamp(2.5rem, 5vw, 4rem);
+
+  line-height: 1.1;
+
+  letter-spacing: -0.04em;
+
+  margin-bottom: 1.25rem;
+
+  max-width: 850px;
 }
 
 .hero-text p {
-  color: rgba(255,255,255,0.82);
+  color: rgba(255,255,255,0.78);
+
   line-height: 1.7;
-  max-width: 620px;
-  font-size: 1.05rem;
+
+  max-width: 580px;
+
+  font-size: 1rem;
 }
 
 .hero-text button {
   margin-top: 2rem;
 
-  background: #2ecc71;
-  border: 2px solid #2ecc71;
+  background: var(--accent);
+
+  border: 2px solid var(--accent);
 
   color: white;
 
   padding: 0.8rem 1.6rem;
+
   border-radius: 999px;
 
   cursor: pointer;
+
   transition: 0.3s;
 }
 
 .hero-text button:hover {
   background: transparent;
-  color: #2ecc71;
+
+  color: var(--accent);
 }
 
 /* ---------- TIMELINE ---------- */
 
 .leaflet-container {
   position: fixed;
+
   inset: 0;
 
   width: 100vw !important;
@@ -163,6 +221,7 @@ header {
   z-index: 0;
 
   opacity: 0.3;
+
   pointer-events: none;
 
   filter: grayscale(1) contrast(1.1);
@@ -170,6 +229,7 @@ header {
 
 .timeline-page {
   position: relative;
+
   z-index: 2;
 }
 
@@ -193,9 +253,11 @@ header {
   color: white;
 
   font-size: clamp(3rem, 7vw, 6rem);
+
   font-weight: 200;
 
   line-height: 0.95;
+
   letter-spacing: -0.08em;
 
   margin-bottom: 1rem;
@@ -207,7 +269,9 @@ header {
   color: rgba(255,255,255,0.65);
 
   font-size: 1rem;
+
   text-transform: uppercase;
+
   letter-spacing: 0.08em;
 }
 
@@ -217,15 +281,19 @@ header {
   padding: 1.5rem;
 
   border-radius: 1.25rem;
+
   border-left: 3px solid rgba(255,255,255,0.15);
 
   background: rgba(0,0,0,0.72);
+
   backdrop-filter: blur(12px);
 
   color: rgba(255,255,255,0.92);
 
   line-height: 1.8;
+
   font-size: 1.1rem;
+
   font-weight: 300;
 }
 
@@ -235,13 +303,16 @@ header {
   color: rgba(255,255,255,0.55);
 
   font-size: 0.8rem;
+
   text-transform: uppercase;
+
   letter-spacing: 0.15em;
 }
 
 .tech-stack-container {
   display: flex;
   flex-wrap: wrap;
+
   gap: 0.75rem;
 }
 
@@ -263,8 +334,29 @@ header {
   padding: 6rem 0;
 }
 
+.projects-header {
+  margin-bottom: 3rem;
+}
+
+.projects-header h1 {
+  color: white;
+
+  margin-bottom: 1rem;
+
+  font-size: clamp(3rem, 7vw, 5rem);
+}
+
+.projects-header p {
+  color: rgba(255,255,255,0.75);
+
+  max-width: 700px;
+
+  line-height: 1.7;
+}
+
 .projects-grid {
   display: grid;
+
   gap: 1.5rem;
 }
 
@@ -274,6 +366,7 @@ header {
   border-radius: 1.5rem;
 
   background: rgba(0, 0, 0, 0.55);
+
   backdrop-filter: blur(12px);
 
   color: white;
@@ -305,6 +398,7 @@ header {
 
 .project-card ul {
   margin-top: 1rem;
+
   padding-left: 1.25rem;
 }
 
@@ -320,11 +414,11 @@ header {
 
   border-radius: 999px;
 
-  border: 2px solid #2ecc71;
+  border: 2px solid var(--accent);
 
   background: transparent;
 
-  color: #2ecc71;
+  color: var(--accent);
 
   cursor: pointer;
 
@@ -333,7 +427,8 @@ header {
 
 .project-card button:hover,
 .back-button:hover {
-  background: #2ecc71;
+  background: var(--accent);
+
   color: white;
 }
 
@@ -378,7 +473,7 @@ header {
 .project-detail-card h2 {
   margin-bottom: 1rem;
 
-  color: #2ecc71;
+  color: var(--accent);
 }
 
 .project-detail-card p,
@@ -391,4 +486,93 @@ header {
 .project-detail-card ul,
 .project-detail-card ol {
   padding-left: 1.25rem;
+}
+
+/* ---------- THEME TOGGLE ---------- */
+
+.theme-toggle {
+  position: fixed;
+
+  right: 2rem;
+  bottom: 2rem;
+
+  z-index: 100;
+}
+
+.switch {
+  position: relative;
+
+  display: inline-block;
+
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+
+  cursor: pointer;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-color: #2ecc71;
+
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+
+  content: "";
+
+  height: 26px;
+  width: 26px;
+
+  left: 4px;
+  bottom: 4px;
+
+  background-color: white;
+
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #d97706;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.resume-view {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.resume-view.green {
+  --accent: #2ecc71;
+}
+
+.resume-view.orange {
+  --accent: #d97706;
 }
