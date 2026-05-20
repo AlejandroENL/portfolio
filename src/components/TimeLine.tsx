@@ -41,11 +41,11 @@ const timelineItems: TimelineItem[] = [
     title: "City of Dallas",
     subtitle: "Senior GIS Analyst / Developer · 2025 – Present",
     latlon: [32.7764033, -96.7968229],
-    stack: ["React", "TypeScript", "C#", ".NET", "Python", "ArcGIS Enterprise"],
+    stack: ["React", "TypeScript", "C#", ".NET", "Python", "Git", "CI/CD" , "ArcGIS Enterprise"],
     showStack: true,
     zoom: 12.25,
     context:
-      "Engineer and maintain enterprise geospatial platforms, web applications, and supporting infrastructure. Design and modernize applications using React and TypeScript, build custom tools and integrations with C#/.NET and ArcGIS Pro SDK, and support backend automation workflows."
+      "Engineer and maintain enterprise geospatial platforms, web applications, and supporting infrastructure. Design and modernize applications using React and TypeScript, build custom tools and integrations with C#/.NET and ArcGIS Pro SDK, support backend automation workflows, and contribute to Git-based development and deployment practices."
   },
   {
     id: "city-of-fort-worth",
