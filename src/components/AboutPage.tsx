@@ -1,29 +1,19 @@
-import aboutImage from '/IMG_5589.jpg'
-
-
-const aboutPage = () => {
+const AboutPage = () => {
   return (
-      <div className='aboutContainer'  >
-        <h1 className="aboutTitle">Alejandro Morales </h1>
-        <div className="card">
-          <h2 className="aboutCard">
-            Jorge “Alejandro” Morales is a Software Engineer with a background in Anthropology and GIS — because why choose one discipline when you can confuse everyone and do three? 
-            <br/>
-            <br/>
-
-            A Texas State graduate, he has worked across public and private sectors improving geospatial systems and scaling modern applications. 
-            Driven by curiosity, he founded Every New Leaf as a space to explore ideas, build tools, and push creative boundaries. 
-            Today, he continues shaping technology with purpose and forward momentum. And yes — Anthropology still calls. He’ll circle back eventually. It’s what you do with maps, after all.
-          </h2>
-        </div>
-            <div className='aboutImageAnimate'>
-              <img className="aboutImage" src={aboutImage} alt={"about image"}/>
-            </div>
-
+    <div className="aboutContainer">
+      <div className="card">
+        <h2 className="aboutCard">
+          I’m Alejandro Morales, a GIS Developer and software engineer focused on building modern mapping applications, internal tools, and automation workflows.
+          <br />
+          <br />
+          My background combines GIS, anthropology, and software development, which gives me a practical way to understand both technical systems and the people who use them.
+          <br />
+          <br />
+          I work primarily with React, TypeScript, Python, ArcGIS Enterprise, and web mapping technologies to modernize workflows, improve user experience, and build tools that solve real operational problems.
+        </h2>
       </div>
-      
+    </div>
   );
 };
 
-export default aboutPage;
-
+export default AboutPage;
