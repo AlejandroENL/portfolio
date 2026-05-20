@@ -1,6 +1,6 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { FC } from "react";
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
-import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 
 type TimelineItem = {
