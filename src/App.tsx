@@ -1,34 +1,23 @@
-import { useState } from 'react'
-import './App.css'
-import Header from './components/Header'
-import MainCard from './components/MainCard'
-import Slideshow from './components/Slideshow'
+import { useState } from "react";
+import "./App.css";
 
+import Header from "./components/Header";
+import MainCard from "./components/MainCard";
 
 function App() {
-  const [selectedTitle, setSelectedTitle] = useState<string>("Home");
-  
-  return (
-      <div className="app-frame">
-        {selectedTitle === "Home" && <Slideshow />}
+  const [selectedPage, setSelectedPage] = useState<string>("home");
 
-        {selectedTitle === "Home" ? (
-          <div className="content-overlay">
-            <header className="header">
-              <Header onPageSelect={setSelectedTitle} />
-            </header>
-            <MainCard title={selectedTitle} />
-          </div>
-        ) : (
-          <div className="about-frame content-overlay">
-            <header className="header">
-              <Header onPageSelect={setSelectedTitle} />
-            </header>
-            <MainCard title={selectedTitle} />
-          </div>
-        )}
+  return (
+    <main className={selectedPage === "timeline" ? "dark-hero" : "hero"}>
+      <div className="main-width">
+        <Header onPageSelect={setSelectedPage} />
+        <MainCard
+          title={selectedPage}
+          onPageSelect={setSelectedPage}
+        />
       </div>
-    )
+    </main>
+  );
 }
 
-export default App
+export default App;

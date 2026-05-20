@@ -1,33 +1,46 @@
-import AboutPage from "./AboutPage";
-import TimeLine from "./TimeLine";
+import ProjectsPage from "./ProjectsPage";
+import Timeline from "./TimeLine";
 
+type MainCardProps = {
+  title: string;
+  onPageSelect?: (page: string) => void;
+};
 
+const MainCard = ({ title, onPageSelect }: MainCardProps) => {
+  if (title === "timeline") {
+    return <Timeline />;
+  }
 
-type MainCardParams = {
-    title: string;
-}
+  if (title === "projects") {
+    return <ProjectsPage />;
+  }
 
-
-const MainCard = ({ title }: MainCardParams) => {
   return (
-      (title === "about") ? (
-        <div>
-          <AboutPage/>
-        </div>
-        ) : (title === "timeline") ? (
-        <div className='mainCard'>
-          <TimeLine/>
-          <div className="card"></div>
-        </div> ) : (  
-        <>
+    <section className="container">
+      <div className="hero-text">
+        <h3>
+          Software Engineer • Full Stack Development • Automation
+        </h3>
 
-        <h1 className="nabla-header">
-        Studied people, mapped places — now I engineer what connects them.
+        <h1>
+          Building modern applications, backend workflows,
+          and internal tools for complex operational environments.
         </h1>
-        </>
-        ) 
-      );
+
+        <p>
+          Focused on frontend engineering, backend services,
+          automation workflows, enterprise integrations,
+          and scalable application design.
+        </p>
+
+        <button
+          onClick={() => onPageSelect?.("projects")}
+        >
+          View Work
+        </button>
+      </div>
+    </section>
+  );
 };
 
 export default MainCard;
-

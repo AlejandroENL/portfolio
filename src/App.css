@@ -1,211 +1,394 @@
-html, body, #root {
-  height: 100%;
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-/* Keep body neutral so the app controls background/colors */
-body {
-  background: transparent; /* or match your app bg color */
-}
-
+html,
+body,
 #root {
-  width: 100vw;
-  min-height: 100vh;
-  max-width: none;      /* remove any width cap */
-  padding: 0;           /* remove template padding */
-  text-align: center;    /* don't force centering globally */
-  display: flex;
-  flex-direction: column;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-.app-frame {
-  position: relative;
-  flex: 1;          /* so it grows inside #root flex column */
   width: 100%;
   min-height: 100vh;
-  overflow: auto;
-}
-.card {
-  padding: 2rem;
-}
-.about-frame {
-  height: 100vh;
-  background-color: black;
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  overflow: auto;
-}
-.aboutContainer {
-  width: 50vw;
-  background-color: black;
-  padding-left: 12rem;
+  overflow-x: hidden;
 }
 
-.aboutTitle {
-  padding: 2rem;
-  margin-bottom: 0px;
-  text-align: left;
-  font-family: "Golos Text", sans-serif;
-  font-optical-sizing: auto;
-  font-size: 76px;
-  font-weight: 150;
-  font-style: normal;
-  letter-spacing: -2.2px;
-  text-decoration: none;
-  text-transform: none;
-  color: rgb(255, 255, 255);
+body {
+  background: #000;
 }
-.aboutCard {
-  text-align: left;
-  font-family: "Golos Text", sans-serif;
-  font-optical-sizing: auto;
-  font-size: 32px;
-  /* font-weight: 300; */
-  font-style: normal;
-  letter-spacing: -0.4px;
-  text-decoration: none;
-  text-transform: none;
-  color: rgb(255, 255, 255);
-}
-.aboutImage {
-  left: 0px;
-  top: 0px;
-  width: auto;
-  height: 700px;
-  z-index: 310;
-}
-.aboutImageAnimate {
+
+/* ---------- APP LAYOUT ---------- */
+
+.hero {
+  width: 100%;
+  min-height: 100vh;
   position: relative;
-  display: flex;
-  margin-left: 83%;
-  left: 180px;
-  width: 600px;
-  height: 1550px;
-  offset-path: path("M 335 230.5");
-  offset-rotate: 0deg;
+  overflow: hidden;
+
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url("./assets/Green-BGV2.jpg");
+
+  background-size: cover;
+  background-position: center;
 }
-/* Content sits above slideshow */
-.content-overlay {
+
+.main-width {
+  width: min(1280px, 92%);
+  margin: 0 auto;
+}
+
+/* ---------- HEADER ---------- */
+
+header {
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.logo img {
+  width: 240px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.nav-list li button {
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-list li button:hover {
+  color: #2ecc71;
+}
+
+.nav-list li.btn a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+
+  border: 2px solid #2ecc71;
+
+  color: #2ecc71;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-list li.btn a:hover {
+  background: #2ecc71;
+  color: white;
+}
+
+/* ---------- HOME ---------- */
+
+.container {
+  min-height: calc(100vh - 120px);
+
+  display: flex;
+  align-items: center;
+}
+
+.hero-text {
+  max-width: 700px;
+}
+
+.hero-text h3 {
+  color: rgba(255,255,255,0.75);
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.hero-text h1 {
+  color: white;
+  font-size: clamp(3rem, 7vw, 5rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+  color: rgba(255,255,255,0.82);
+  line-height: 1.7;
+  max-width: 620px;
+  font-size: 1.05rem;
+}
+
+.hero-text button {
+  margin-top: 2rem;
+
+  background: #2ecc71;
+  border: 2px solid #2ecc71;
+
+  color: white;
+
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-text button:hover {
+  background: transparent;
+  color: #2ecc71;
+}
+
+/* ---------- TIMELINE ---------- */
+
+.leaflet-container {
+  position: fixed;
+  inset: 0;
+
+  width: 100vw !important;
+  height: 100vh !important;
+
+  z-index: 0;
+
+  opacity: 0.3;
+  pointer-events: none;
+
+  filter: grayscale(1) contrast(1.1);
+}
+
+.timeline-page {
   position: relative;
   z-index: 2;
 }
-.slideshow-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;  
-  z-index: 0;
-  overflow: hidden;
-}
-.slideshow-bg .react-slideshow-wrapper,
-.slideshow-bg .images-wrap {
-  height: 100%;
-}
 
-.slideshow-bg img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
-
-
-/* Background map */
-.leaflet-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh !important;
-  width: 100vw !important;
-  opacity: 0.4;
-  z-index: -1;
-  pointer-events: none; /* map is not clickable */
-}
-
-/* Foreground content wrapper */
-.timeline-page {
-  position: relative;
-  z-index: 1;
-  color: #111;
-}
-
-/* Each timeline section fills (or nearly fills) the viewport */
 .timeline-section {
   min-height: 100vh;
-  padding: 6rem 4rem;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  padding: 6rem 0;
+
+  text-align: left;
+}
+
+.timeline-section > * {
+  max-width: 760px;
 }
 
 .timeline-title {
-  font-size: 4rem;
+  color: white;
+
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 200;
+
+  line-height: 0.95;
+  letter-spacing: -0.08em;
+
   margin-bottom: 1rem;
 }
 
 .timeline-subtitle {
-  font-size: 1.5rem;
-  color: #b7b5b5;
+  margin-bottom: 2rem;
+
+  color: rgba(255,255,255,0.65);
+
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
+
 .timeline-context {
-  font-size: 1.5rem;
-  font-weight: 200;
-  margin-bottom: 1rem;
-  color: #ffffff;
-  justify-content: flex-start;  /* keep it left-aligned */
-  align-self: center;
-  width: 75%;
+  margin-bottom: 2rem;
+
+  padding: 1.5rem;
+
+  border-radius: 1.25rem;
+  border-left: 3px solid rgba(255,255,255,0.15);
+
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(12px);
+
+  color: rgba(255,255,255,0.92);
+
+  line-height: 1.8;
+  font-size: 1.1rem;
+  font-weight: 300;
 }
-.timeline-stack {
-  padding-bottom: 15px;
-  padding-top: 15px;
-  font-size: 1.5rem;
-  font-weight: 200;
-  margin: 0;  
-  color: #ffffff;
+
+.timeline-stack-label {
+  margin-bottom: 0.75rem;
+
+  color: rgba(255,255,255,0.55);
+
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
 }
+
 .tech-stack-container {
-  display: grid;
-  /* Instead of 1fr (full width), size columns to content */
-  grid-template-columns: repeat(2, max-content);
-  column-gap: 80px;   /* tighter horizontal spacing */
-  row-gap: 40px;      /* optional: vertical spacing */
-  justify-content: flex-start;  /* keep it left-aligned */
-  width: fit-content;  
-  align-self: center;         /* don't stretch to full line */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
-.nabla-header {
-  margin-top: 15%;
-  font-family: "Golos Text", sans-serif;
-  font-size: 33px;
-  font-weight: 50;
-  font-style: normal;
-  
+
+.timeline-stack {
+  padding: 0.55rem 0.9rem;
+
+  border-radius: 999px;
+
+  background: rgba(0,0,0,0.6);
+
+  color: rgba(255,255,255,0.9);
+
+  font-size: 0.92rem;
+}
+
+/* ---------- PROJECTS ---------- */
+
+.projects-page {
+  padding: 6rem 0;
+}
+
+.projects-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.project-card {
+  padding: 2rem;
+
+  border-radius: 1.5rem;
+
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+
+  color: white;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.project-card-header {
+  margin-bottom: 1rem;
+}
+
+.project-card-header h2 {
+  margin-bottom: 0.75rem;
+}
+
+.project-card-header span {
+  color: rgba(255,255,255,0.7);
+}
+
+.project-card ul {
+  margin-top: 1rem;
+  padding-left: 1.25rem;
+}
+
+.project-card li {
+  margin-bottom: 0.5rem;
+}
+
+.project-card button,
+.back-button {
+  margin-top: 1.5rem;
+
+  padding: 0.75rem 1.4rem;
+
+  border-radius: 999px;
+
+  border: 2px solid #2ecc71;
+
+  background: transparent;
+
+  color: #2ecc71;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.project-card button:hover,
+.back-button:hover {
+  background: #2ecc71;
+  color: white;
+}
+
+.project-detail-page {
+  padding: 5rem 0;
+
+  color: white;
+
+  text-align: left;
+}
+
+.project-detail-header {
+  margin: 2rem 0;
+}
+
+.project-detail-header h1 {
+  font-size: clamp(3rem, 7vw, 5rem);
+
+  line-height: 1;
+
+  margin-bottom: 1rem;
+}
+
+.project-detail-header p {
+  color: rgba(255,255,255,0.7);
+}
+
+.project-detail-card {
+  max-width: 850px;
+
+  margin-bottom: 1.5rem;
+
+  padding: 1.75rem;
+
+  border-radius: 1.25rem;
+
+  background: rgba(0,0,0,0.68);
+
+  backdrop-filter: blur(12px);
+}
+
+.project-detail-card h2 {
+  margin-bottom: 1rem;
+
+  color: #2ecc71;
+}
+
+.project-detail-card p,
+.project-detail-card li {
+  line-height: 1.75;
+
+  color: rgba(255,255,255,0.88);
+}
+
+.project-detail-card ul,
+.project-detail-card ol {
+  padding-left: 1.25rem;
 }
