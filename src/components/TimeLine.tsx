@@ -32,8 +32,8 @@ type TimelineItem = {
 
 //Probably best options for middle ground with a bit more dark
 // const MapTileURL = "https://tiles.stadiamaps.com/tiles/stamen_terrain_lines/{z}/{x}/{y}{r}.png" 
-const MapTileURL = "https://tiles.stadiamaps.com/tiles/stamen_toner_background/{z}/{x}/{y}{r}.png" // this one is cool its black and white no labels
-
+// const MapTileURL = "https://tiles.stadiamaps.com/tiles/stamen_toner_background/{z}/{x}/{y}{r}.png" // this one is cool its black and white no labels
+const MapTileURL = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 
 const timelineItems: TimelineItem[] = [
   {
