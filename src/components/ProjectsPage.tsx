@@ -106,13 +106,13 @@ const ProjectDetailView = ({
         </ul>
       </ProjectSection>
 
-      <ProjectSection title="Demo / Example Ideas">
+      {/* <ProjectSection title="Demo / Example Ideas">
         <ul>
           {project.details.demoIdeas.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
-      </ProjectSection>
+      </ProjectSection> */}
     </section>
   );
 };
