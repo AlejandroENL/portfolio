@@ -1,73 +1,59 @@
-# React + TypeScript + Vite
+# Every New Leaf Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website showcasing software engineering, geospatial development, and enterprise application projects.
 
-Currently, two official plugins are available:
+The site was built to serve as a central location for my professional experience, technical projects, and career progression as I continue applying software engineering principles across geospatial, enterprise, and data-driven applications.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Interactive career timeline
+- Project showcase
+- Geospatial visualization using Leaflet
+- Responsive design for desktop and mobile devices
+- Theme support and custom branding
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
 
-## Expanding the ESLint configuration
+- React
+- TypeScript
+- Vite
+- Leaflet
+- HTML5
+- CSS3
+- Git
+- Netlify
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Featured Projects
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Design Sheet Loader
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Custom React and TypeScript application that retrieves engineering design sheets associated with utility assets. The solution integrates frontend workflows with Python backend services to locate, process, and present documents to users.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Vault Tool
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Geospatial document retrieval and aggregation tool that allows users to select assets on a map and retrieve related records from multiple systems.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Web Comment & Service Request Tool
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Application that allows users to submit location-based requests through an interactive map interface while routing requests through controlled backend workflows.
+
+## Project Demonstrations
+
+Several featured projects were developed within enterprise environments and cannot be shared publicly in their original form. To provide additional technical detail, I am currently developing standalone demonstrations that recreate core workflows using sample data and publicly shareable code.
+
+Planned demonstrations include:
+
+- Spatial Search & Records Aggregation Tool
+- Document Retrieval & Lookup Workflow
+- Geospatial Service Request Application
+- Engineering Document Viewer
+
+These demonstrations will focus on application architecture, user experience, data processing, API integration, and geospatial workflows while avoiding proprietary or employer-owned information.
+
+## Purpose
+
+This portfolio serves as a living project and professional showcase. In addition to highlighting completed work, it provides an opportunity to experiment with new technologies, improve frontend development skills, and document engineering experience gained through enterprise software development.
+
+## Live Site
+
+https://foreverynewleaf.com
