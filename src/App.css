@@ -226,6 +226,14 @@ body {
 
   filter: grayscale(1) contrast(1.1);
 }
+.project-detail-demo .leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+  opacity: 1;
+  pointer-events: auto;
+  filter: brightness(.75) contrast(1.25) ;
+  border-radius: 1.25rem;
+}
 
 .timeline-page {
   position: relative;
@@ -457,7 +465,7 @@ body {
 }
 
 .project-detail-card {
-  max-width: 850px;
+  max-width: 600px;
 
   margin-bottom: 1.5rem;
 
@@ -469,7 +477,27 @@ body {
 
   backdrop-filter: blur(12px);
 }
+.project-detail-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 600px) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
 
+.project-detail-content {
+  min-width: 0;
+}
+
+.project-detail-demo {
+  min-width: 0;
+  min-height: 900px;
+  margin-bottom: 1.5rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+}
 .project-detail-card h2 {
   margin-bottom: 1rem;
 
@@ -485,7 +513,7 @@ body {
 
 .project-detail-card ul,
 .project-detail-card ol {
-  padding-left: 1.25rem;
+  padding-left: .25rem;
 }
 
 /* ---------- THEME TOGGLE ---------- */
