@@ -1,9 +1,12 @@
 import { useState, useRef, FC } from "react";
 import { projects } from "../data/projects";
 import type { Project } from "../data/projects";
-import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
+
+import L from "leaflet";
+import type { Feature, Geometry } from "geojson";
+import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
+import { demoMapFeatures, type DemoFeatureProperties } from "../data/demoMapFeatures";
 import "leaflet/dist/leaflet.css";
-import { demoMapFeatures } from "../data/demoMapFeatures";
 
 const MapTileURL = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 const center: [number, number] = [39.742, -104.988];
@@ -72,6 +75,29 @@ const ProjectDetailView = ({
   project,
   onBack
 }: ProjectDetailViewProps) => {
+  const onFeatureClick = (
+  feature: Feature<Geometry, DemoFeatureProperties>,
+  layer: L.Layer
+  ) => {
+    const {
+      featureId,
+      category,
+      relatedRecordCount
+    } = feature.properties;
+
+    layer.bindPopup(
+      `
+      <div>
+        <strong>${featureId}</strong>
+        <br />
+        Category: ${category}
+        <br />
+        Related Records: ${relatedRecordCount}
+      </div>
+    `
+    );
+  }
+  
   return (
     <section className="project-detail-page">
       <button
@@ -135,7 +161,7 @@ const ProjectDetailView = ({
                     attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
                   />
-                  <GeoJSON data={demoMapFeatures}/>
+                  <GeoJSON data={demoMapFeatures} onEachFeature={onFeatureClick}/>
                 </MapContainer>
               ) :
               (
