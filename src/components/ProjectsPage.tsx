@@ -1,11 +1,12 @@
 import { useState, useRef, FC } from "react";
 import { projects } from "../data/projects";
 import type { Project } from "../data/projects";
-import { MapContainer, TileLayer, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, GeoJSON, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { demoMapFeatures } from "../data/demoMapFeatures";
 
 const MapTileURL = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-const center: [number, number] = [32.76, -96.79];
+const center: [number, number] = [39.742, -104.988];
 
 const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -128,16 +129,13 @@ const ProjectDetailView = ({
               {project.details.hasMapComponent ? (
                 <MapContainer
                   center={center}
-                  zoom={12}
+                  zoom={14}
                 >
                   <TileLayer
                     attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    // url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
                     url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
-                    // url="https://map1.vis.earthdata.nasa.gov/wmts-webmerc/MODIS_Terra_CorrectedReflectance_Bands367/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.png"
-                    
-
                   />
+                  <GeoJSON data={demoMapFeatures}/>
                 </MapContainer>
               ) :
               (
