@@ -4,6 +4,7 @@ export type ProjectDetail = {
   architecture: string[];
   engineeringFocus: string[];
   demoIdeas: string[];
+  hasMapComponent: boolean;
 };
 
 export type Project = {
@@ -55,7 +56,8 @@ export const projects: Project[] = [
         "Open-source Leaflet version using fake file paths",
         "Backend lookup flow diagram",
         "Document preview workflow with mock data"
-      ]
+      ],
+      hasMapComponent: true
     }
   },
 
@@ -99,7 +101,8 @@ export const projects: Project[] = [
         "Mock infrastructure lookup table",
         "Query and aggregation flow diagram",
         "Print/export interface prototype"
-      ]
+      ],
+      hasMapComponent: true
     }
   },
 
@@ -143,7 +146,8 @@ export const projects: Project[] = [
         "Issue reporting form with mock backend",
         "Frontend/backend request flow diagram",
         "Mock operations dashboard"
-      ]
+      ],
+      hasMapComponent: true
     }
   },
 
@@ -186,7 +190,8 @@ export const projects: Project[] = [
         "Service dependency visualization",
         "Component hierarchy diagram",
         "Mock application inventory dataset"
-      ]
+      ],
+      hasMapComponent: false
     }
   },
 
@@ -230,7 +235,8 @@ export const projects: Project[] = [
         "Embedded app UI mockup",
         "Simplified Express.js token workflow",
         "Frontend/backend sequence diagram"
-      ]
+      ],
+      hasMapComponent: false
     }
   },
 
@@ -274,7 +280,8 @@ export const projects: Project[] = [
         "Mock reporting workflow",
         "Scheduled job architecture visualization",
         "Python logging and monitoring example"
-      ]
+      ],
+      hasMapComponent: false
     }
   }
 ];
