@@ -151,18 +151,27 @@ const ProjectDetailView = ({
             </div>
 
             <div className="project-detail-demo">
-
               {project.details.hasMapComponent ? (
-                <MapContainer
-                  center={center}
-                  zoom={14}
-                >
-                  <TileLayer
-                    attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
-                  />
-                  <GeoJSON data={demoMapFeatures} onEachFeature={onFeatureClick}/>
-                </MapContainer>
+                <div>
+                  <button
+                  className="map-tool-button"
+                  type="button"
+                  onClick={() => console.log(project.details.mapComponentButton?.buttonLabel + ": Controller Clicked")}
+                  >
+                    {project.details.mapComponentButton?.buttonLabel}
+                  </button>
+                  <MapContainer
+                    center={center}
+                    zoom={14}
+                  >
+                    <TileLayer
+                      attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                      url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+                    />
+                    <GeoJSON data={demoMapFeatures} onEachFeature={onFeatureClick}/>
+                  </MapContainer>
+                </div>
+
               ) :
               (
                 <>

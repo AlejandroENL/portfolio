@@ -235,6 +235,23 @@ body {
   border-radius: 1.25rem;
 }
 
+.map-tool-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+
+  z-index: 1000;
+
+  padding: 0.75rem 1rem;
+  border: none;
+  border-radius: 0.75rem;
+
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+
+  cursor: pointer;
+}
+
 .timeline-page {
   position: relative;
 

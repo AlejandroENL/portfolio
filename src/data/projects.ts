@@ -5,6 +5,10 @@ export type ProjectDetail = {
   engineeringFocus: string[];
   demoIdeas: string[];
   hasMapComponent: boolean;
+  mapComponentButton?: {
+    buttonLabel: string,
+    toolType: "identify" | "draw" 
+  }
 };
 
 export type Project = {
@@ -57,7 +61,11 @@ export const projects: Project[] = [
         "Backend lookup flow diagram",
         "Document preview workflow with mock data"
       ],
-      hasMapComponent: true
+      hasMapComponent: true,
+      mapComponentButton: {
+        buttonLabel: "Design Sheet",
+        toolType: "identify"
+      }
     }
   },
 
@@ -102,7 +110,11 @@ export const projects: Project[] = [
         "Query and aggregation flow diagram",
         "Print/export interface prototype"
       ],
-      hasMapComponent: true
+      hasMapComponent: true,
+      mapComponentButton: {
+        buttonLabel: "Search Area",
+        toolType: "draw"
+      }
     }
   },
 
@@ -147,7 +159,11 @@ export const projects: Project[] = [
         "Frontend/backend request flow diagram",
         "Mock operations dashboard"
       ],
-      hasMapComponent: true
+      hasMapComponent: true,
+      mapComponentButton: {
+        buttonLabel: "Add Comment",
+        toolType: "identify"
+      }
     }
   },
 
