@@ -90,7 +90,6 @@ const ProjectDetailView = ({
     console.log(project.details.mapComponentButton?.buttonLabel + ": Controller Clicked" + " Tool Status: " + updatedToolState);
 
     setToolEnabled(updatedToolState)
-     setIsSubmitting(true)
     console.log(updatedToolState)
   }
   
@@ -124,7 +123,13 @@ const ProjectDetailView = ({
 
       if (toolEnableRef.current){
         console.log("Tool is enabled do something else")
-
+        setIsSubmitting(true)
+        
+        setTimeout(() => {
+          console.log("disabling ref and state")
+          setIsSubmitting(false);
+          setToolEnabled(false)
+        }, 2000)
         // we will add the logic to handle what ever the tool will be doing here
         // based on what tool is being used this will use the correspodning logic
       }
