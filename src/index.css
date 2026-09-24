@@ -178,4 +178,16 @@ header{
   bottom: 2rem;
   z-index: 10;
 }
-
+.global-loader-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; 
+}
+.global-loader-inner {
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+}

@@ -1,11 +1,13 @@
 import { useState, useRef, FC } from "react";
 import { projects } from "../data/projects";
 import type { Project } from "../data/projects";
-
+import React from "react";
 import L from "leaflet";
 import type { Feature, Geometry } from "geojson";
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import { demoMapFeatures, type DemoFeatureProperties } from "../data/demoMapFeatures";
+import GlobalLoader from "./GlobalLoader";
+import 'ldrs/react/TailChase.css'
 import "leaflet/dist/leaflet.css";
 
 // const MapTileURL = "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
@@ -80,6 +82,7 @@ const ProjectDetailView = ({
 
   const [toolEnabled, setToolEnabled] = useState(false);
   const toolEnableRef = useRef(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
 
   const handleToolClick = () => {
     const updatedToolState = !toolEnabled;
@@ -87,6 +90,7 @@ const ProjectDetailView = ({
     console.log(project.details.mapComponentButton?.buttonLabel + ": Controller Clicked" + " Tool Status: " + updatedToolState);
 
     setToolEnabled(updatedToolState)
+     setIsSubmitting(true)
     console.log(updatedToolState)
   }
   
@@ -116,6 +120,7 @@ const ProjectDetailView = ({
     // We attach a click event to handle the actual click
     layer.on("click", () => {
       console.log("Feature clicked: " + featureId);
+     
 
       if (toolEnableRef.current){
         console.log("Tool is enabled do something else")
@@ -129,6 +134,7 @@ const ProjectDetailView = ({
 
   return (
     <section className="project-detail-page">
+      <GlobalLoader show={isSubmitting}/>
       <button
         className="back-button"
         type="button"
@@ -178,6 +184,7 @@ const ProjectDetailView = ({
                 </ul>
               </ProjectSection>
             </div>
+            
 
             <div className="project-detail-demo">
               {project.details.hasMapComponent ? (
