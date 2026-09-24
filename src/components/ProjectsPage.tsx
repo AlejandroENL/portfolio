@@ -8,11 +8,13 @@ import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import { demoMapFeatures, type DemoFeatureProperties } from "../data/demoMapFeatures";
 import "leaflet/dist/leaflet.css";
 
-const MapTileURL = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+// const MapTileURL = "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+const MapTileURL = "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
 const center: [number, number] = [39.742, -104.988];
 
 const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
 
   if (selectedProject) {
     return (
@@ -75,6 +77,17 @@ const ProjectDetailView = ({
   project,
   onBack
 }: ProjectDetailViewProps) => {
+
+  const [toolEnabled, setToolEnabled] = useState(false)
+  const handleToolClick = () => {
+    const updatedToolState = !toolEnabled;
+
+    console.log(project.details.mapComponentButton?.buttonLabel + ": Controller Clicked" + " Tool Status: " + updatedToolState);
+
+    setToolEnabled(updatedToolState)
+    console.log(updatedToolState)
+  }
+  
   const onFeatureClick = (
   feature: Feature<Geometry, DemoFeatureProperties>,
   layer: L.Layer
@@ -97,6 +110,7 @@ const ProjectDetailView = ({
     `
     );
   }
+  
   
   return (
     <section className="project-detail-page">
@@ -154,9 +168,10 @@ const ProjectDetailView = ({
               {project.details.hasMapComponent ? (
                 <div>
                   <button
+                  style={{background: toolEnabled ? 'Green' : 'Blue'}}
                   className="map-tool-button"
                   type="button"
-                  onClick={() => console.log(project.details.mapComponentButton?.buttonLabel + ": Controller Clicked")}
+                  onClick={() => handleToolClick() }
                   >
                     {project.details.mapComponentButton?.buttonLabel}
                   </button>
@@ -166,7 +181,7 @@ const ProjectDetailView = ({
                   >
                     <TileLayer
                       attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                      url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
+                      url={MapTileURL}
                     />
                     <GeoJSON data={demoMapFeatures} onEachFeature={onFeatureClick}/>
                   </MapContainer>
