@@ -239,18 +239,29 @@ body {
   position: absolute;
   top: 1rem;
   right: 1rem;
-
   z-index: 1000;
-
   padding: 0.75rem 1rem;
   border: none;
   border-radius: 0.75rem;
-
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--accent);
   color: white;
-
   cursor: pointer;
 }
+.tool-instruction-label {
+  position: absolute;
+  width: 50%;
+  right: 1rem;
+  z-index: 1000;
+  padding: 0.75rem 1rem;
+  background-color: var(--accent);
+  color: #ffffff;
+  border-radius: 0.75rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  font-size: 1em;
+  font-weight: 500;
+  font-family: "Golos Text", sans-serif;
+}
+
 
 .timeline-page {
   position: relative;

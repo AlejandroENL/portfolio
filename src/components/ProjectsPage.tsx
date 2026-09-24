@@ -123,15 +123,18 @@ const ProjectDetailView = ({
 
       if (toolEnableRef.current){
         console.log("Tool is enabled do something else")
-        setIsSubmitting(true)
-        
-        setTimeout(() => {
-          console.log("disabling ref and state")
-          setIsSubmitting(false);
-          setToolEnabled(false)
-        }, 2000)
-        // we will add the logic to handle what ever the tool will be doing here
-        // based on what tool is being used this will use the correspodning logic
+
+        if (project.details.mapComponentButton?.buttonLabel === "Design Sheet"){
+          setIsSubmitting(true)
+          setTimeout(() => {
+            console.log("disabling ref and state")
+            setIsSubmitting(false);
+            toolEnableRef.current = false;
+            setToolEnabled(false);
+          }, 2000)
+          // we will add the logic to handle what ever the tool will be doing here
+          // based on what tool is being used this will use the correspodning logic
+        }
       }
     })
   }
@@ -194,14 +197,30 @@ const ProjectDetailView = ({
             <div className="project-detail-demo">
               {project.details.hasMapComponent ? (
                 <div>
-                  <button
+                  {/* <button
                   style={{background: toolEnabled ? 'Green' : 'Blue'}}
                   className="map-tool-button"
                   type="button"
                   onClick={() => handleToolClick() }
                   >
                     {project.details.mapComponentButton?.buttonLabel}
-                  </button>
+                  </button> */}
+                  <div>
+                  {!toolEnabled ? (
+                    <button
+                    className="map-tool-button"
+                    type="button"
+                    onClick={() => handleToolClick() }
+                    >
+                      {project.details.mapComponentButton?.buttonLabel}
+                    </button>
+                  ) : 
+                  (
+                    <div className="tool-instruction-label">
+                      {project.details.mapComponentButton?.toolInstructions}
+                    </div>
+                  )}
+                  </div>
                   <MapContainer
                     center={center}
                     zoom={14}

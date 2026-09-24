@@ -7,7 +7,8 @@ export type ProjectDetail = {
   hasMapComponent: boolean;
   mapComponentButton?: {
     buttonLabel: string,
-    toolType: "identify" | "draw" 
+    toolType: "identify" | "draw" ,
+    toolInstructions: string,
   }
 };
 
@@ -64,7 +65,8 @@ export const projects: Project[] = [
       hasMapComponent: true,
       mapComponentButton: {
         buttonLabel: "Design Sheet",
-        toolType: "identify"
+        toolType: "identify",
+        toolInstructions: "Please Select A Feature To View Design Sheet"
       }
     }
   },
@@ -113,7 +115,8 @@ export const projects: Project[] = [
       hasMapComponent: true,
       mapComponentButton: {
         buttonLabel: "Search Area",
-        toolType: "draw"
+        toolType: "draw",
+        toolInstructions: "Please Draw An Area To View Assocaited Records"
       }
     }
   },
@@ -162,7 +165,8 @@ export const projects: Project[] = [
       hasMapComponent: true,
       mapComponentButton: {
         buttonLabel: "Add Comment",
-        toolType: "identify"
+        toolType: "identify",
+        toolInstructions: "Please Enter Comment Below"
       }
     }
   },
