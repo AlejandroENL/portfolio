@@ -78,17 +78,19 @@ const ProjectDetailView = ({
   onBack
 }: ProjectDetailViewProps) => {
 
-  const [toolEnabled, setToolEnabled] = useState(false)
+  const [toolEnabled, setToolEnabled] = useState(false);
+  const toolEnableRef = useRef(false);
+
   const handleToolClick = () => {
     const updatedToolState = !toolEnabled;
-
+    toolEnableRef.current = updatedToolState
     console.log(project.details.mapComponentButton?.buttonLabel + ": Controller Clicked" + " Tool Status: " + updatedToolState);
 
     setToolEnabled(updatedToolState)
     console.log(updatedToolState)
   }
   
-  const onFeatureClick = (
+  const onEachFeature = (
   feature: Feature<Geometry, DemoFeatureProperties>,
   layer: L.Layer
   ) => {
@@ -98,6 +100,7 @@ const ProjectDetailView = ({
       relatedRecordCount
     } = feature.properties;
 
+    // We attach a pop up for interactions
     layer.bindPopup(
       `
       <div>
@@ -109,9 +112,21 @@ const ProjectDetailView = ({
       </div>
     `
     );
+
+    // We attach a click event to handle the actual click
+    layer.on("click", () => {
+      console.log("Feature clicked: " + featureId);
+
+      if (toolEnableRef.current){
+        console.log("Tool is enabled do something else")
+
+        // we will add the logic to handle what ever the tool will be doing here
+        // based on what tool is being used this will use the correspodning logic
+      }
+    })
   }
   
-  
+
   return (
     <section className="project-detail-page">
       <button
@@ -183,7 +198,7 @@ const ProjectDetailView = ({
                       attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                       url={MapTileURL}
                     />
-                    <GeoJSON data={demoMapFeatures} onEachFeature={onFeatureClick}/>
+                    <GeoJSON data={demoMapFeatures} onEachFeature={onEachFeature}/>
                   </MapContainer>
                 </div>
 

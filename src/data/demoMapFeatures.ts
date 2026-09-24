@@ -29,7 +29,7 @@ export const demoMapFeatures: FeatureCollection<
       geometry: {
         type: "LineString",
         coordinates: [
-          [-104.999, 39.748],
+          [-104.998, 39.748],
           [-104.994, 39.746],
           [-104.989, 39.744],
           [-104.984, 39.742],
