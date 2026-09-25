@@ -111,7 +111,7 @@ export const projects: Project[] = [
         "Query and aggregation flow diagram",
         "Print/export interface prototype"
       ],
-      hasMapComponent: true,
+      hasMapComponent: false, // temp while i work on demo component 
       mapComponentButton: {
         buttonLabel: "Search Area",
         toolType: "draw",

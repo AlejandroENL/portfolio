@@ -1,4 +1,4 @@
-import { useState, useRef, FC } from "react";
+import { useState, useRef, useEffect } from "react";
 import { projects } from "../data/projects";
 import type { Project } from "../data/projects";
 import React from "react";
@@ -15,6 +15,7 @@ import { InputForm } from "./InputForm";
 // const MapTileURL = "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
 const MapTileURL = "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
 const center: [number, number] = [39.742, -104.988];
+
 
 const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -88,6 +89,19 @@ const ProjectDetailView = ({
   const [showPopup, setShowPopup] = useState(false);
   const [showInputForm, setShowInputForm] = useState(false);
 
+  useEffect(() => {
+        if (project.details.id !== 1) {
+        return;
+      }
+      demoMapFeatures.features.forEach((feature) => {
+        feature.properties.relatedDocuments?.forEach((document) => {
+          const image = new Image();
+          image.src = document.file;
+        });
+      });
+    }, []);
+
+
   const handleToolClick = () => {
     const updatedToolState = !toolEnabled;
     toolEnableRef.current = updatedToolState
@@ -136,7 +150,6 @@ const ProjectDetailView = ({
           const document = feature.properties.relatedDocuments?.[0];
 
           if (!document) {
-            console.log("No related document found");
             setShowPopup(true)
             return;
           }
@@ -145,7 +158,7 @@ const ProjectDetailView = ({
 
           // Simulate processing
           await new Promise<void>((resolve) => {
-            setTimeout(resolve, 1500);
+            setTimeout(resolve, 500);
           });
 
           console.log("Disabling ref and state");
@@ -243,7 +256,7 @@ const ProjectDetailView = ({
                 </ul>
               </ProjectSection>
               
-              {
+              {/* {
                 project.details.demoIdeas ? 
               <ProjectSection title="Demo / Example Ideas">
                 <ul>
@@ -254,11 +267,12 @@ const ProjectDetailView = ({
                 </ul>
               </ProjectSection> :
               <div/>
-              }
+              } */}
 
             </div>
             
-
+         {/* adding for now to remove demo sections that arent ready */}
+          {project.details.hasMapComponent ? (
             <div className="project-detail-demo">
               {project.details.hasMapComponent ? (
                 <div>
@@ -292,14 +306,16 @@ const ProjectDetailView = ({
 
               ) :
               (
+
+                
                 <>
-                  Add seperate demo here
                 </>
               )
 
               }
 
             </div>
+            ) : (null)}
       </div>
     </section>
 
