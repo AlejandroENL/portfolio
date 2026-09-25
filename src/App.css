@@ -893,7 +893,7 @@ input:checked + .slider:before {
 
 .service-request-form input:focus,
 .service-request-form textarea:focus {
-  border-color: #646cff;
+  border-color:  var(--accent);
   box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.15);
 }
 
@@ -903,7 +903,7 @@ input:checked + .slider:before {
   border: none;
   border-radius: 0.5rem;
 
-  background: #646cff;
+  background:  var(--accent);
   color: white;
 
   font: inherit;
