@@ -10,6 +10,7 @@ import GlobalLoader from "./GlobalLoader";
 import Popup from "./Popup";
 import 'ldrs/react/TailChase.css'
 import "leaflet/dist/leaflet.css";
+import { InputForm } from "./InputForm";
 
 // const MapTileURL = "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
 const MapTileURL = "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
@@ -85,6 +86,7 @@ const ProjectDetailView = ({
   const toolEnableRef = useRef(false);
   const [isSubmitting, setIsSubmitting] = React.useState(false)
   const [showPopup, setShowPopup] = useState(false);
+  const [showInputForm, setShowInputForm] = useState(false);
 
   const handleToolClick = () => {
     const updatedToolState = !toolEnabled;
@@ -93,6 +95,10 @@ const ProjectDetailView = ({
 
     setToolEnabled(updatedToolState)
     console.log(updatedToolState)
+
+    if (project.details.id === 3) {
+          setShowInputForm(true);
+        }
   }
   
   const onEachFeature = (
@@ -159,7 +165,23 @@ const ProjectDetailView = ({
     });
 
   }
+
+  const handleAddInput = (
+    requesteBy: string,
+    userEmail: string,
+    requestDescription: string
+  ) => {
+    console.log("Requested By:" + requesteBy);
+    console.log("Email:" + userEmail);
+    console.log("Description:" + requestDescription);
+    handleInputFormClose();
+  }
   
+  const handleInputFormClose = () => {
+    setShowInputForm(false);
+    setToolEnabled(false);
+    toolEnableRef.current = false;
+  }
 
   return (
     <section className="project-detail-page">
@@ -169,9 +191,18 @@ const ProjectDetailView = ({
           titleText="No Documents Found"
           bodyText="Please select a feature that has documents."
           defaultIsOpen={showPopup}
-          onClose={() => setShowPopup(false)}
+          onClose={() => {setShowPopup(false); setToolEnabled(false)}}
         />
       )}
+      {showInputForm && (
+            <InputForm
+              onAddInput={handleAddInput}
+              onClose={handleInputFormClose}
+              errorTitleText="Error"
+              errorBodyText="One or more inputs were empty."
+              canSubmit={true}
+            />
+          )}
       <button
         className="back-button"
         type="button"

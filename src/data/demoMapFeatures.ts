@@ -173,14 +173,7 @@ export const demoMapFeatures: FeatureCollection<
         id: 7,
         featureId: "SITE-2001",
         category: "Site",
-        relatedRecordCount: 2,
-        relatedDocuments: [
-          {
-            id: 7,
-            title: "Utility Trench and Pavement Restoration Details",
-            file: "/demo-documents/site-inspection.png"
-          }
-        ],
+        relatedRecordCount: 2
       },
       geometry: {
         type: "Point",
@@ -267,14 +260,7 @@ export const demoMapFeatures: FeatureCollection<
         id: 11,
         featureId: "AREA-3002",
         category: "Operational Area",
-        relatedRecordCount: 3,
-        relatedDocuments: [
-          {
-            id: 7,
-            title: "Utility Trench and Pavement Restoration Details",
-            file: "/demo-documents/site-area-3002.png"
-          }
-        ],
+        relatedRecordCount: 3
       },
       geometry: {
         type: "Polygon",

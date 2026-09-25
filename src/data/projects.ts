@@ -165,9 +165,9 @@ export const projects: Project[] = [
       ],
       hasMapComponent: true,
       mapComponentButton: {
-        buttonLabel: "Add Comment",
+        buttonLabel: "Service/Change Request",
         toolType: "identify",
-        toolInstructions: "Please Enter Comment Below"
+        toolInstructions: "Please Enter Request Details"
       }
     }
   },
