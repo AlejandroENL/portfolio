@@ -1,4 +1,5 @@
 export type ProjectDetail = {
+  id: number;
   problem: string;
   solution: string;
   architecture: string[];
@@ -34,6 +35,8 @@ export const projects: Project[] = [
     ],
 
     details: {
+      id: 1,
+
       problem:
         "Users needed to retrieve engineering documents stored outside the web application, which required manually identifying records, searching file systems, and opening documents through disconnected workflows.",
 
@@ -64,9 +67,9 @@ export const projects: Project[] = [
       ],
       hasMapComponent: true,
       mapComponentButton: {
-        buttonLabel: "Design Sheet",
+        buttonLabel: "Retrieve Document",
         toolType: "identify",
-        toolInstructions: "Please Select A Feature To View Design Sheet"
+        toolInstructions: "Please Select A Feature To View Corresponding Document"
       }
     }
   },
@@ -84,6 +87,8 @@ export const projects: Project[] = [
     ],
 
     details: {
+      id: 2,
+      
       problem:
         "Users needed to collect related records across multiple selected assets without manually opening each record or searching through separate systems.",
 
@@ -116,7 +121,7 @@ export const projects: Project[] = [
       mapComponentButton: {
         buttonLabel: "Search Area",
         toolType: "draw",
-        toolInstructions: "Please Draw An Area To View Assocaited Records"
+        toolInstructions: "Please Draw An Area To View Associated Records"
       }
     }
   },
@@ -134,6 +139,8 @@ export const projects: Project[] = [
     ],
 
     details: {
+      id: 3,
+      
       problem:
         "Support requests, enhancement ideas, and data issues were being submitted through disconnected communication channels, making tracking and team visibility inconsistent.",
 
@@ -184,6 +191,8 @@ export const projects: Project[] = [
     ],
 
     details: {
+      id: 4,
+      
       problem:
         "Existing inventory tools used older frontend patterns and made it difficult to understand relationships between applications, services, and backend dependencies.",
 
@@ -228,6 +237,8 @@ export const projects: Project[] = [
     ],
 
     details: {
+      id: 5,
+      
       problem:
         "The CRM platform needed embedded mapping capabilities, but authentication requirements created friction and prevented a seamless user experience.",
 
@@ -273,6 +284,8 @@ export const projects: Project[] = [
     ],
 
     details: {
+      id: 6,
+      
       problem:
         "Recurring operational workflows relied on repetitive manual processing, increasing turnaround time and introducing inconsistency.",
 

@@ -3,11 +3,18 @@ import type {
   Geometry,
 } from "geojson";
 
+export interface DemoDocument {
+  id: number;
+  title: string;
+  file: string;
+}
+
 export interface DemoFeatureProperties {
   id: number;
   featureId: string;
   category: string;
   relatedRecordCount: number;
+  relatedDocuments?: DemoDocument[];
 }
 
 export const demoMapFeatures: FeatureCollection<
@@ -25,6 +32,13 @@ export const demoMapFeatures: FeatureCollection<
         featureId: "SEG-1001",
         category: "Linear Asset",
         relatedRecordCount: 3,
+        relatedDocuments: [
+          {
+            id: 1,
+            title: "Utility Trench and Pavement Restoration Details",
+            file: "/demo-documents/sidewalk-details.png"
+          }
+        ],
       },
       geometry: {
         type: "LineString",
@@ -44,6 +58,13 @@ export const demoMapFeatures: FeatureCollection<
         featureId: "SEG-1002",
         category: "Linear Asset",
         relatedRecordCount: 2,
+        relatedDocuments: [
+          {
+            id: 2,
+            title: "Utility Trench and Pavement Restoration Details",
+            file: "/demo-documents/utility-trench.png"
+          }
+        ],
       },
       geometry: {
         type: "LineString",
@@ -62,6 +83,18 @@ export const demoMapFeatures: FeatureCollection<
         featureId: "SEG-1003",
         category: "Linear Asset",
         relatedRecordCount: 4,
+        relatedDocuments: [
+          {
+            id: 3,
+            title: "Utility Trench and Pavement Restoration Details",
+            file: "/demo-documents/utility-trench.png"
+          },
+          {
+            id: 4,
+            title: "Storm Drain Inlet - Type C",
+            file: "/demo-documents/storm-drain-inlet.png"
+          }
+        ],
       },
       geometry: {
         type: "LineString",
@@ -117,9 +150,16 @@ export const demoMapFeatures: FeatureCollection<
       type: "Feature",
       properties: {
         id: 6,
-        featureId: "SITE-2001",
+        featureId: "SITE-2003",
         category: "Site",
         relatedRecordCount: 5,
+        relatedDocuments: [
+          {
+            id: 7,
+            title: "Utility Trench and Pavement Restoration Details",
+            file: "/demo-documents/site-inspection-site-2003.png"
+          }
+        ],
       },
       geometry: {
         type: "Point",
@@ -131,9 +171,16 @@ export const demoMapFeatures: FeatureCollection<
       type: "Feature",
       properties: {
         id: 7,
-        featureId: "SITE-2002",
+        featureId: "SITE-2001",
         category: "Site",
         relatedRecordCount: 2,
+        relatedDocuments: [
+          {
+            id: 7,
+            title: "Utility Trench and Pavement Restoration Details",
+            file: "/demo-documents/site-inspection.png"
+          }
+        ],
       },
       geometry: {
         type: "Point",
@@ -145,9 +192,16 @@ export const demoMapFeatures: FeatureCollection<
       type: "Feature",
       properties: {
         id: 8,
-        featureId: "SITE-2003",
+        featureId: "SITE-2002",
         category: "Site",
         relatedRecordCount: 1,
+        relatedDocuments: [
+          {
+            id: 8,
+            title: "Utility Trench and Pavement Restoration Details",
+            file: "/demo-documents/inlet-point.png"
+          }
+        ],
       },
       geometry: {
         type: "Point",
@@ -162,6 +216,13 @@ export const demoMapFeatures: FeatureCollection<
         featureId: "SITE-2004",
         category: "Site",
         relatedRecordCount: 4,
+        relatedDocuments: [
+          {
+            id: 7,
+            title: "Utility Trench and Pavement Restoration Details",
+            file: "/demo-documents/site-inspection-site-2004.png"
+          }
+        ],
       },
       geometry: {
         type: "Point",
@@ -178,6 +239,13 @@ export const demoMapFeatures: FeatureCollection<
         featureId: "AREA-3001",
         category: "Operational Area",
         relatedRecordCount: 6,
+        relatedDocuments: [
+          {
+            id: 7,
+            title: "Utility Trench and Pavement Restoration Details",
+            file: "/demo-documents/site-area-3001.png"
+          }
+        ],
       },
       geometry: {
         type: "Polygon",
@@ -200,6 +268,13 @@ export const demoMapFeatures: FeatureCollection<
         featureId: "AREA-3002",
         category: "Operational Area",
         relatedRecordCount: 3,
+        relatedDocuments: [
+          {
+            id: 7,
+            title: "Utility Trench and Pavement Restoration Details",
+            file: "/demo-documents/site-area-3002.png"
+          }
+        ],
       },
       geometry: {
         type: "Polygon",
@@ -222,6 +297,13 @@ export const demoMapFeatures: FeatureCollection<
         featureId: "AREA-3003",
         category: "Operational Area",
         relatedRecordCount: 2,
+        relatedDocuments: [
+          {
+            id: 7,
+            title: "Utility Trench and Pavement Restoration Details",
+            file: "/demo-documents/site-area-3003.png"
+          }
+        ],
       },
       geometry: {
         type: "Polygon",
