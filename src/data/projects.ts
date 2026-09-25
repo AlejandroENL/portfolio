@@ -4,7 +4,7 @@ export type ProjectDetail = {
   solution: string;
   architecture: string[];
   engineeringFocus: string[];
-  demoIdeas: string[];
+  demoIdeas?: string[];
   hasMapComponent: boolean;
   mapComponentButton?: {
     buttonLabel: string,
@@ -59,12 +59,6 @@ export const projects: Project[] = [
         "User-centered workflow automation"
       ],
 
-      demoIdeas: [
-        "Mock record click returning sample document records",
-        "Open-source Leaflet version using fake file paths",
-        "Backend lookup flow diagram",
-        "Document preview workflow with mock data"
-      ],
       hasMapComponent: true,
       mapComponentButton: {
         buttonLabel: "Retrieve Document",

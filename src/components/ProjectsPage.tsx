@@ -200,7 +200,9 @@ const ProjectDetailView = ({
                   ))}
                 </ul>
               </ProjectSection>
-
+              
+              {
+                project.details.demoIdeas ? 
               <ProjectSection title="Demo / Example Ideas">
                 <ul>
                   {project.details.demoIdeas.map((item) => (
@@ -208,7 +210,10 @@ const ProjectDetailView = ({
                   ))}
 
                 </ul>
-              </ProjectSection>
+              </ProjectSection> :
+              <div/>
+              }
+
             </div>
             
 
