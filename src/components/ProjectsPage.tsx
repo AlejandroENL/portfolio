@@ -7,6 +7,7 @@ import type { Feature, Geometry } from "geojson";
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import { demoMapFeatures, type DemoFeatureProperties } from "../data/demoMapFeatures";
 import GlobalLoader from "./GlobalLoader";
+import Popup from "./Popup";
 import 'ldrs/react/TailChase.css'
 import "leaflet/dist/leaflet.css";
 
@@ -83,6 +84,7 @@ const ProjectDetailView = ({
   const [toolEnabled, setToolEnabled] = useState(false);
   const toolEnableRef = useRef(false);
   const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [showPopup, setShowPopup] = useState(false);
 
   const handleToolClick = () => {
     const updatedToolState = !toolEnabled;
@@ -129,6 +131,7 @@ const ProjectDetailView = ({
 
           if (!document) {
             console.log("No related document found");
+            setShowPopup(true)
             return;
           }
 
@@ -144,7 +147,7 @@ const ProjectDetailView = ({
           setIsSubmitting(false);
           toolEnableRef.current = false;
           setToolEnabled(false);
-
+          // setShowPopup(true)
           // We open the corresponding document after processing finishes
           window.open(
             document.file,
@@ -161,6 +164,14 @@ const ProjectDetailView = ({
   return (
     <section className="project-detail-page">
       <GlobalLoader show={isSubmitting}/>
+      {showPopup && (
+        <Popup
+          titleText="No Documents Found"
+          bodyText="Please select a feature that has documents."
+          defaultIsOpen={showPopup}
+          onClose={() => setShowPopup(false)}
+        />
+      )}
       <button
         className="back-button"
         type="button"
