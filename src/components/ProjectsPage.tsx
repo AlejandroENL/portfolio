@@ -13,7 +13,8 @@ import "leaflet/dist/leaflet.css";
 import { InputForm } from "./InputForm";
 
 // const MapTileURL = "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
-const MapTileURL = "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
+// const MapTileURL = "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
+const MapTileURL ="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 const center: [number, number] = [39.742, -104.988];
 
 
