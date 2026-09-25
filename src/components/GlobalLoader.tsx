@@ -20,7 +20,7 @@ export default function GlobalLoader({show}: GlobalLoaderProps) {
     return ReactDOM.createPortal(
         <div className="global-loader-overlay">
             <div className="global-loader-inner">
-                <Spiral size="100" speed="0.9" color='#f7f7f7ff'/>
+                <Spiral size="150" speed="0.9" color='#f7f7f7ff'/>
             </div>
         </div>,
         target

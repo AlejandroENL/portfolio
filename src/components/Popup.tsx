@@ -13,6 +13,7 @@ export default function Popup({ titleText, bodyText, defaultIsOpen, onClose}: po
     const dialogRef = useRef<HTMLDialogElement>(null);
 
     const handlePopupClose = () => {
+
         onClose();
     }
 
