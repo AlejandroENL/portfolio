@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef } from "react";
 // Replace with open souce import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'jimu-ui'
 
 interface popupProps {

@@ -1,4 +1,5 @@
-import React, { FormEvent, useRef, useState } from 'react';
+import { useRef, useState } from "react";
+import type { FormEvent } from "react";
 import Popup from "./Popup";
 
 type NewInputProps = {
@@ -132,8 +133,8 @@ export function InputForm ({onAddInput, onClose, errorTitleText, errorBodyText, 
                 </div>
                 {showError && (
                     <Popup
-                        titleText='Error'
-                        bodyText='One or More Inputs Were Empty'
+                        titleText={errorTitleText}
+                        bodyText={errorBodyText}
                         defaultIsOpen={showError}
                         onClose={() => setShowError(false)}
                     />
