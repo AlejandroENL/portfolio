@@ -212,18 +212,12 @@ body {
 
 .leaflet-container {
   position: fixed;
-
   inset: 0;
-
   width: 100vw !important;
   height: 100vh !important;
-
   z-index: 0;
-
   opacity: 0.3;
-
   pointer-events: none;
-
   filter: grayscale(1) contrast(1.1);
 }
 .project-detail-demo .leaflet-container {
@@ -231,8 +225,11 @@ body {
   height: 100% !important;
   opacity: 1;
   pointer-events: auto;
-  filter: brightness(.75) contrast(1.25) ;
   border-radius: 1.25rem;
+  filter: none; /* we will fitler it out so we can apply the filter to only the tiles so our features pop */
+}
+.project-detail-demo .leaflet-tile {
+  filter: grayscale(1) contrast(.75);
 }
 
 .map-tool-button {
