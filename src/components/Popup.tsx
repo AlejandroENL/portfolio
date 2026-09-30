@@ -6,9 +6,10 @@ interface popupProps {
     bodyText?: string
     onClose: () => void
     defaultIsOpen: boolean
+    color: string
 }
 
-export default function Popup({ titleText, bodyText, defaultIsOpen, onClose}: popupProps){
+export default function Popup({ titleText, bodyText, defaultIsOpen, color, onClose}: popupProps){
 
     const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -35,7 +36,7 @@ export default function Popup({ titleText, bodyText, defaultIsOpen, onClose}: po
     return(
         <dialog ref={dialogRef} className="popup">
 
-        <div className="popup-header">
+        <div className="popup-header" style={{backgroundColor: color}}>
             <h2>{titleText}</h2>
         </div>
 

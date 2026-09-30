@@ -11,24 +11,30 @@ type NewInputProps = {
     onClose: () => void,
     errorTitleText: string;
     errorBodyText: string;
+    confirmationTitleText: string;
+    confirmationBodyText: string;
     canSubmit?: boolean;
 }
 
 const COMMENT_MAX_LENGHT = 250
 
-export function InputForm ({onAddInput, onClose, errorTitleText, errorBodyText, canSubmit=false}: NewInputProps) {
+export function InputForm ({onAddInput, onClose, errorTitleText, errorBodyText, confirmationTitleText, confirmationBodyText, canSubmit=false}: NewInputProps) {
     
     const requestedBy = useRef<HTMLInputElement>(null);
     const userEmail = useRef<HTMLInputElement>(null);
 
 
     const [showError, setShowError] = useState(false);
+    const [showConfirmation, setShowConfirmation] = useState(false);
     // const [errorVersion, setErrorVersion] = useState(0);
     const [requestDescription, setRequestDescription] = useState("");
 
     const openError = () => {
         setShowError(true);
         // setErrorVersion(v => v + 1);
+    }
+    const openConfirmation = () => {
+        setShowConfirmation(true);
     }
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -46,7 +52,7 @@ export function InputForm ({onAddInput, onClose, errorTitleText, errorBodyText, 
         if(
             enteredRequestedBy.trim() === "" ||
             enteredUserEmail.trim() === "" ||
-            enteredRequestDescription.trim() === " "
+            enteredRequestDescription.trim() === ""
         ) {
             openError();
             return;
@@ -59,11 +65,13 @@ export function InputForm ({onAddInput, onClose, errorTitleText, errorBodyText, 
             enteredUserEmail,
             enteredRequestDescription
         )
+        openConfirmation();
+
     };
 
     const handleKeyDown = (e: any) => {
         if (e.key === 'Enter') {
-            console.log(e.target.value);
+            // console.log(e.target.value);
         }
     }
 
@@ -73,7 +81,7 @@ export function InputForm ({onAddInput, onClose, errorTitleText, errorBodyText, 
                 <div className="service-request-form-scroll">
                     <div className="form-field">
                     <label htmlFor="requestedBy">
-                        Requested By
+                        Name
                     </label>
 
                     <input
@@ -135,8 +143,18 @@ export function InputForm ({onAddInput, onClose, errorTitleText, errorBodyText, 
                     <Popup
                         titleText={errorTitleText}
                         bodyText={errorBodyText}
+                        color="#d93125"
                         defaultIsOpen={showError}
                         onClose={() => setShowError(false)}
+                    />
+                )}
+                {showConfirmation && (
+                    <Popup
+                        titleText={confirmationTitleText}
+                        bodyText={confirmationBodyText}
+                        color="#2ecc71"
+                        defaultIsOpen={showConfirmation}
+                        onClose={() => {setShowConfirmation(false); onClose();}}
                     />
                 )}
             </form>

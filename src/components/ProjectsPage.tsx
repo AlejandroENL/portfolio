@@ -10,6 +10,9 @@ import GlobalLoader from "./GlobalLoader";
 import Popup from "./Popup";
 import 'ldrs/react/TailChase.css'
 import "leaflet/dist/leaflet.css";
+import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
 import { InputForm } from "./InputForm";
 
 // const MapTileURL = "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png"
@@ -17,6 +20,11 @@ import { InputForm } from "./InputForm";
 const MapTileURL ="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 const center: [number, number] = [39.742, -104.988];
 
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: markerIcon2x,
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow
+});
 
 const ProjectsPage = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -106,10 +114,10 @@ const ProjectDetailView = ({
   const handleToolClick = () => {
     const updatedToolState = !toolEnabled;
     toolEnableRef.current = updatedToolState
-    console.log(project.details.mapComponentButton?.buttonLabel + ": Controller Clicked" + " Tool Status: " + updatedToolState);
+    // console.log(project.details.mapComponentButton?.buttonLabel + ": Controller Clicked" + " Tool Status: " + updatedToolState);
 
     setToolEnabled(updatedToolState)
-    console.log(updatedToolState)
+    // console.log(updatedToolState)
 
     if (project.details.id === 3) {
           setShowInputForm(true);
@@ -141,10 +149,10 @@ const ProjectDetailView = ({
 
     // We attach a click event to handle the actual click
     layer.on("click", async () => {
-      console.log("Feature clicked: " + featureId);
+      // console.log("Feature clicked: " + featureId);
 
       if (toolEnableRef.current) {
-        console.log("Tool is enabled");
+        // console.log("Tool is enabled");
 
         if (project.details.id === 1) {
 
@@ -181,14 +189,14 @@ const ProjectDetailView = ({
   }
 
   const handleAddInput = (
-    requesteBy: string,
-    userEmail: string,
-    requestDescription: string
+    // requesteBy: string,
+    // userEmail: string,
+    // requestDescription: string
   ) => {
-    console.log("Requested By:" + requesteBy);
-    console.log("Email:" + userEmail);
-    console.log("Description:" + requestDescription);
-    handleInputFormClose();
+    // console.log("Requested By:" + requesteBy);
+    // console.log("Email:" + userEmail);
+    // console.log("Description:" + requestDescription);
+    // handleInputFormClose();
   }
   
   const handleInputFormClose = () => {
@@ -204,6 +212,7 @@ const ProjectDetailView = ({
         <Popup
           titleText="No Documents Found"
           bodyText="Please select a feature that has documents."
+          color="#d93125"
           defaultIsOpen={showPopup}
           onClose={() => {setShowPopup(false); setToolEnabled(false)}}
         />
@@ -214,6 +223,8 @@ const ProjectDetailView = ({
               onClose={handleInputFormClose}
               errorTitleText="Error"
               errorBodyText="One or more inputs were empty."
+              confirmationTitleText="Request Submitted"
+              confirmationBodyText="Thank you for your feedback, we will get back with you soon."
               canSubmit={true}
             />
           )}
