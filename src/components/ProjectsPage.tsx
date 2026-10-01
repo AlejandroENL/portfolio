@@ -170,7 +170,7 @@ const ProjectDetailView = ({
             setTimeout(resolve, 500);
           });
 
-          console.log("Disabling ref and state");
+          // console.log("Disabling ref and state");
 
           setIsSubmitting(false);
           toolEnableRef.current = false;
