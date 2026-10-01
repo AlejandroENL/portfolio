@@ -132,6 +132,7 @@ const TimelineMapPage = () => {
     <>
       {/* Background map */}
       <MapContainer
+      className="background-map"
         center={activeItem.latlon}
         zoom={10}
         zoomControl={false}

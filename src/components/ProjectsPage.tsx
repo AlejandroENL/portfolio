@@ -287,35 +287,38 @@ const ProjectDetailView = ({
           {project.details.hasMapComponent ? (
             <div className="project-detail-demo">
               {project.details.hasMapComponent ? (
-                <div>
-                  <div>
-                  {!toolEnabled ? (
-                    <button
-                    className="map-tool-button"
-                    type="button"
-                    onClick={() => handleToolClick() }
-                    >
-                      {project.details.mapComponentButton?.buttonLabel}
-                    </button>
-                  ) : 
-                  (
-                    <div className="tool-instruction-label">
-                      {project.details.mapComponentButton?.toolInstructions}
-                    </div>
-                  )}
+                <div className="map-wrapper">
+                  <div className="map-tool-overlay">
+                    {!toolEnabled ? (
+                      <button
+                        className="map-tool-button"
+                        type="button"
+                        onClick={() => handleToolClick()}
+                      >
+                        {project.details.mapComponentButton?.buttonLabel}
+                      </button>
+                    ) : (
+                      <div className="tool-instruction-label">
+                        {project.details.mapComponentButton?.toolInstructions}
+                      </div>
+                    )}
                   </div>
                   <MapContainer
                     center={center}
                     zoom={14}
-
                   >
                     <TileLayer
-                      attribution='&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                      attribution="..."
                       url={MapTileURL}
                     />
-                    <GeoJSON data={demoMapFeatures} onEachFeature={onEachFeature}/>
+                    <GeoJSON
+                      data={demoMapFeatures}
+                      onEachFeature={onEachFeature}
+                    />
                   </MapContainer>
+
                 </div>
+
 
               ) :
               (
